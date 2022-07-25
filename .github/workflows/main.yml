@@ -44,6 +44,8 @@ jobs:
         uses: ./.github/actions/csharp-evaluator
         with:
           pr_author_username: ${{ github.event.pull_request.user.login }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          pr-number: ${{ github.event.pull_request.number }}
 
       - name: Run Store evaluation
         uses: ./.github/actions/store-evaluation
