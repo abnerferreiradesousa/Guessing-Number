@@ -138,7 +138,7 @@
     },
     {
       "bonus": false,
-      "description": "18 - Criou testes de sucesso para o TestFullFlow.",
+      "description": "18 - Criou testes de falha para o TestFullFlow.",
       "enabled": true,
       "identifier": null,
       "order": 18,

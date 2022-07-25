@@ -5,7 +5,7 @@ using FluentAssertions;
 namespace guessing_number.Test.Test;
 
 [Collection("Sequential")]
-public class TestTestSecondReq
+public class TestRandomlyChooseANumberSuccess
 {
     [Trait("Category", "9 - Criou testes de sucesso para o TestRandomlyChooseANumber.")]
     [Theory(DisplayName = "TestRandomlyChooseANumber deve ser executado com sucesso com a entrada correta")]
@@ -17,7 +17,11 @@ public class TestTestSecondReq
         act.Should().NotThrow<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
+[Collection("Sequential")]
+public class TestRandomlyChooseANumberFail
+{
     [Trait("Category", "10 - Criou testes de falha para o TestRandomlyChooseANumber.")]
     [Theory(DisplayName = "TestRandomlyChooseANumber deve falhar com a entrada errada")]
     [InlineData(101, 200)]
@@ -31,7 +35,11 @@ public class TestTestSecondReq
         act.Should().Throw<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
+[Collection("Sequential")]
+public class TestProgramComparisonValuesLessSuccess
+{
     [Trait("Category", "11 - Criou testes de sucesso para o TestProgramComparisonValuesLess.")]
     [Theory(DisplayName = "TestProgramComparisonValuesLess deve ser executado com sucesso com a entrada correta")]
     [InlineData(50, 30)]
@@ -46,7 +54,11 @@ public class TestTestSecondReq
         act.Should().NotThrow<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
+[Collection("Sequential")]
+public class TestProgramComparisonValuesLessFail
+{
     [Trait("Category", "12 - Criou testes de falha para o TestProgramComparisonValuesLess.")]
     [Theory(DisplayName = "TestProgramComparisonValuesLess deve falhar com a entrada errada")]
     [InlineData(50, 50)]
@@ -61,7 +73,11 @@ public class TestTestSecondReq
         act.Should().Throw<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
+[Collection("Sequential")]
+public class TestProgramComparisonValuesBiggerSuccess
+{
     [Trait("Category", "13 - Criou testes de sucesso para o TestProgramComparisonValuesBigger.")]
     [Theory(DisplayName = "TestProgramComparisonValuesBigger deve ser executado com sucesso com a entrada correta")]
     [InlineData(50, 60)]
@@ -76,7 +92,11 @@ public class TestTestSecondReq
         act.Should().NotThrow<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
+[Collection("Sequential")]
+public class TestProgramComparisonValuesBiggerFail
+{
     [Trait("Category", "14 - Criou testes de falha para o TestProgramComparisonValuesBigger.")]
     [Theory(DisplayName = "TestProgramComparisonValuesBigger deve falhar com a entrada errada")]
     [InlineData(50, 49)]
@@ -91,7 +111,11 @@ public class TestTestSecondReq
         act.Should().Throw<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
+[Collection("Sequential")]
+public class TestProgramComparisonValuesEqualSuccess
+{
     [Trait("Category", "15 - Criou testes de sucesso para o TestProgramComparisonValuesEqual.")]
     [Theory(DisplayName = "TestProgramComparisonValuesEqual deve ser executado com sucesso com a entrada correta")]
     [InlineData(50, 50)]
@@ -106,7 +130,11 @@ public class TestTestSecondReq
         act.Should().NotThrow<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
+[Collection("Sequential")]
+public class TestProgramComparisonValuesEqualFail
+{
     [Trait("Category", "16 - Criou testes de falha para o TestProgramComparisonValuesEqual.")]
     [Theory(DisplayName = "TestProgramComparisonValuesEqual deve falhar com a entrada errada")]
     [InlineData(50, -50)]

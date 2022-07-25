@@ -5,7 +5,7 @@ using FluentAssertions;
 namespace guessing_number.Test.Test;
 
 [Collection("Sequential")]
-public class TestTestFirsReq
+public class TestPrintInitialMessageSuccess
 {
     [Trait("Category", "1 - Criou testes de sucesso para o TestPrintInitialMessage.")]
     [Theory(DisplayName = "TestPrintInitialMessage deve ser executado com sucesso quando printar a saudação")]
@@ -17,7 +17,11 @@ public class TestTestFirsReq
         act.Should().NotThrow<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
+[Collection("Sequential")]
+public class TestPrintInitialMessageFail
+{
     [Trait("Category", "2 - Criou testes de falha para o TestPrintInitialMessage.")]
     [Theory(DisplayName = "TestPrintInitialMessage deve falhar com sucesso quando não printar a saudação")]
     [InlineData(new object[] {new string[]{"Bem vindo ao Guessing Game", "Para começar, tente adivinhar o número que eu pensei, entre -100 e 100!"}})]
@@ -31,7 +35,11 @@ public class TestTestFirsReq
         act.Should().Throw<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
+[Collection("Sequential")]
+public class TestReceiveUserInputAndConvertSuccess
+{
     [Trait("Category", "3 - Criou testes de sucesso para o TestReceiveUserInputAndConvert.")]
     [Theory(DisplayName = "TestReceiveUserInputAndConvert deve ser executado com sucesso quando receber a entrada correta")]
     [InlineData("10", 10)]
@@ -46,7 +54,11 @@ public class TestTestFirsReq
         act.Should().NotThrow<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
+[Collection("Sequential")]
+public class TestReceiveUserInputAndConvertFail
+{
     [Trait("Category", "4 - Criou testes de falha para o TestReceiveUserInputAndConvert.")]
     [Theory(DisplayName = "TestReceiveUserInputAndConvert deve falhar quando receber a entrada errada")]
     [InlineData("9", 10)]
@@ -61,7 +73,11 @@ public class TestTestFirsReq
         act.Should().Throw<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
+[Collection("Sequential")]
+public class TestReceiveUserInputAndVerifyTypeSuccess
+{
     [Trait("Category", "5 - Criou testes de sucesso para o TestReceiveUserInputAndVerifyType.")]
     [Theory(DisplayName = "TestReceiveUserInputAndVerifyType deve executar com sucesso quando receber a entrada correta")]
     [InlineData(new object[] {new string[]{"test", "10"}, 10})]
@@ -76,7 +92,11 @@ public class TestTestFirsReq
         act.Should().NotThrow<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
+[Collection("Sequential")]
+public class TestReceiveUserInputAndVerifyTypeFail
+{
     [Trait("Category", "6 - Criou testes de falha para o TestReceiveUserInputAndVerifyType.")]
     [Theory(DisplayName = "TestReceiveUserInputAndVerifyType deve falhar quando receber a entrada errada")]
     [InlineData(new object[] {new string[]{"10", "11"}, 0})]
@@ -91,7 +111,11 @@ public class TestTestFirsReq
         act.Should().Throw<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
+[Collection("Sequential")]
+public class TestReceiveUserInputAndVerifyRangeSuccess
+{
     [Trait("Category", "7 - Criou testes de sucesso para o TestReceiveUserInputAndVerifyRange.")]
     [Theory(DisplayName = "TestReceiveUserInputAndVerifyRange deve executar com sucesso quando receber a entrada correta")]
     [InlineData(new object[] {new string[]{"1000", "10"}, 10})]
@@ -106,7 +130,11 @@ public class TestTestFirsReq
         act.Should().NotThrow<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
+[Collection("Sequential")]
+public class TestReceiveUserInputAndVerifyRangeFail
+{
     [Trait("Category", "8 - Criou testes de falha para o TestReceiveUserInputAndVerifyRange.")]
     [Theory(DisplayName = "TestReceiveUserInputAndVerifyRange deve falhar quando receber a entrada errada")]
     [InlineData(new object[] {new string[]{"1000", "10"}, 1000})]

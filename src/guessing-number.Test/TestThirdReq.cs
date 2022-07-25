@@ -11,7 +11,7 @@ namespace guessing_number.Test;
 public class TestThirdReq
 {
     [Theory(DisplayName = "Deve receber a executar o fluxo completo do programa")]
-    [InlineData()]
+    [InlineData(new object[] {new string[]{"10"}, 10})]
     public void TestFullFlow(string[] entrys, int mockValue)
     {
         throw new NotImplementedException();

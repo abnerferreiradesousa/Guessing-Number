@@ -189,6 +189,8 @@ As regras do jogo são bem simples:
 - O jogador 1 responde se a tentativa do jogador 2 foi correta, abaixo ou acima do número escolhido.
 -Essa sequência se repete até que o jogador 2 acerte o número.
 
+>> **⚠️Importante⚠️:** Para cada requisito do README, você verá dois requisitos associados no avaliador. Isso acontece porque para avaliar os testes deste projeto, o avaliador irá realizar dois testes: um de sucesso e um de falha. Você deve desenvolver o requisito e o seu teste para ter a aprovação em ambos.
+
 Seguindo os requisitos desse projeto, vamos construir nosso adversário, o jogador 1:
  
 ## 1 - Imprima uma mensagem e receba a resposta da pessoa usuária.
@@ -226,6 +228,21 @@ _Crie a lógica do seu requisito no arquivo src/`guessing-number/GuessingGame.cs
 Você sempre pode executar o programa usando
 `dotnet run` na pasta `scr/guessing-number`.
 
+<details>
+  <summary> Criar os testes do <strong> primeiro</strong> requisito</summary><br/>
+
+> Deve ser feito em `src/guessing-number.Test/TestFirstReq.cs`
+- Se o programa **imprime a mensagem correta**
+  > Crie essa lógica na função `TestPrintInitialMessage()`
+- Se o programa **recebe a entrada da pessoa usuária**
+  > Crie essa lógica na função `TestReceiveUserInputAndConvert()`
+- Se o programa **faz a validação do tipo `int`**
+  > Crie essa lógica na função `TestReceiveUserInputAndVerifyType()`
+- Se o programa **faz a validação do range `-100 e 100`**
+  > Crie essa lógica na função `TestReceiveUserInputAndVerifyRange()`
+
+</details>
+
 ## 2 - O programa deve escolher um número aleatório.
 _Crie a lógica do seu requisito no arquivo src/`guessing-number/GuessingGame.cs`._
 
@@ -247,6 +264,22 @@ _Crie a lógica do seu requisito no arquivo src/`guessing-number/GuessingGame.cs
  
 </details>
 
+<details>
+  <summary> Criar os testes do <strong>segundo</strong> requisito</summary><br/>
+
+> Deve ser feito em `src/guessing-number.Test/TestSecondReq.cs`
+  - Se o programa **escolhe um número aleatório entre -100 e 100**
+    > Crie essa lógica na função `TestRandomlyChooseANumber()`
+  - Se o programa **compara corretamente a entrada e o número escolhido**
+    - para quando o número da pessoa usuária é **menor**
+      > Crie essa lógica nas funções `TestProgramComparisonValuesLess()`
+    - para quando o número da pessoa usuária é **maior**
+      > Crie essa lógica nas funções `TestProgramComparisonValuesBigger()`
+    - para quando a pessoa usuária **acertar**
+      > Crie essa lógica nas funções `TestProgramComparisonValuesEqual()`
+
+</details>
+
 ## 3 - O programa deverá repetir a operação de escolha da pessoa usuária
 _Crie a lógica do seu requisito no arquivo src/`guessing-number/GuessingGame.cs`._
 
@@ -264,50 +297,8 @@ _Crie a lógica do seu requisito no arquivo src/`guessing-number/GuessingGame.cs
  
 </details>
 
-## 4 - Testar o nosso Guessing Game
-_Crie a lógica do seu requisito no arquivo src/`guessing-number.Test/`._
-
-Pronto, nosso jogo já está funcionando :blush:
-> Mas como podemos garantir isso?
-
-:stuck_out_tongue_closed_eyes: **Testando**! :stuck_out_tongue_closed_eyes:
-
-Vamos lá! Você deverá construir 3 testes.
-> 1 para cada requisito.
-
 <details>
-  <summary>-Criar os testes do <strong> primeiro</strong> requisito</summary><br/>
-
-> Deve ser feito em `src/guessing-number.Test/TestFirstReq.cs`
-- Se o programa **imprime a mensagem correta**
-  > Crie essa lógica na função `TestPrintInitialMessage()`
-- Se o programa **recebe a entrada da pessoa usuária**
-  > Crie essa lógica na função `TestReceiveUserInputAndConvert()`
-- Se o programa **faz a validação do tipo `int`**
-  > Crie essa lógica na função `TestReceiveUserInputAndVerifyType()`
-- Se o programa **faz a validação do range `-100 e 100`**
-  > Crie essa lógica na função `TestReceiveUserInputAndVerifyRange()`
-
-</details>
-
-<details>
-  <summary>-Criar os testes do <strong>segundo</strong> requisito</summary><br/>
-
-> Deve ser feito em `src/guessing-number.Test/TestSecondReq.cs`
-  - Se o programa **escolhe um número aleatório entre -100 e 100**
-    > Crie essa lógica na função `TestRandomlyChooseANumber()`
-  - Se o programa **compara corretamente a entrada e o número escolhido**
-    - para quando o número da pessoa usuária é **menor**
-      > Crie essa lógica nas funções `TestProgramComparisonValuesLess()`
-    - para quando o número da pessoa usuária é **maior**
-      > Crie essa lógica nas funções `TestProgramComparisonValuesBigger()`
-    - para quando a pessoa usuária **acertar**
-      > Crie essa lógica nas funções `TestProgramComparisonValuesEqual()`
-
-</details>
-
-<details>
-  <summary>-Criar os testes do <strong>terceiro</strong> requisito</summary><br/>
+  <summary> Criar os testes do <strong>terceiro</strong> requisito</summary><br/>
 
 > Deve ser feito em `src/guessing-number.Test/TestThirdReq.cs`
   - Se o programa **repete o comportamento até a pessoa usuária acertar.**

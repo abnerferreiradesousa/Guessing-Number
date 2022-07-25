@@ -5,7 +5,7 @@ using FluentAssertions;
 namespace guessing_number.Test.Test;
 
 [Collection("Sequential")]
-public class TestTestThirdReq
+public class TestFullFlowSuccess
 {
     [Trait("Category", "17 - Criou testes de sucesso para o TestFullFlow.")]
     [Theory(DisplayName = "TestFullFlow deve ser executado com sucesso com a entrada correta")]
@@ -21,8 +21,12 @@ public class TestTestThirdReq
         act.Should().NotThrow<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
-    [Trait("Category", "18 - Criou testes de sucesso para o TestFullFlow.")]
+[Collection("Sequential")]
+public class TestFullFlowFail
+{
+    [Trait("Category", "18 - Criou testes de falha para o TestFullFlow.")]
     [Theory(DisplayName = "TestFullFlow deve falhar com a entrada errada")]
     [InlineData(new object[] {new string[]{"10"}, -10})]    
     public void TestFailTestFullFlow(string[] entrys, int mockValue)
