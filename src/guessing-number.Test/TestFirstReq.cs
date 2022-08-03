@@ -13,17 +13,16 @@ public class TestFirstReq
     [InlineData(new object[] {new string[]{"---Bem-vindo ao ...---", "Para começar..."}})]
     public void TestPrintInitialMessage(string[] expected)
     {
-        // using (var NewOutput = new StringWriter())
-        // {
-        // Console.SetOut(NewOutput);
+        using (var NewOutput = new StringWriter())
+        {
+        Console.SetOut(NewOutput);
 
-        // GuessNumber instance = new();
-        // instance.Greet();
+        GuessNumber instance = new();
+        instance.Greet();
 
-        // string result = NewOutput.ToString().Trim(;
-        // expected.
-        // result.Should().Be("expected");
-        // }      
+        string result = NewOutput.ToString().Trim();
+        result.Should().Be("expected");
+        }      
         throw new NotImplementedException();  
 
     }
@@ -45,10 +44,10 @@ public class TestFirstReq
 
         throw new NotImplementedException();  
 
-        // var consoleValueInsert = new StringReader(entrys[0].ToString());
-        // Console.SetIn(consoleValueInsert);
-        // var instance = new GuessNumber();
-        // instance.response.Should().Be(expected.ToString());  
+        var consoleValueInsert = new StringReader(entrys[0].ToString());
+        Console.SetIn(consoleValueInsert);
+        var instance = new GuessNumber();
+        instance.response.Should().Be(expected.ToString());  
     }
 
     [Theory(DisplayName = "Deve receber a entrada do usuário e garantir que está entre -100 e 100!")]
@@ -57,10 +56,10 @@ public class TestFirstReq
     {
         throw new NotImplementedException();  
 
-        // Console.Write(entrys);
-        // var consoleValueInsert = new StringReader(entrys.ToString());
-        //     Console.SetIn(consoleValueInsert);
-        //     var instance = new GuessNumber();
-        //     instance.response.Should().Be(expected.ToString());
+        Console.Write(entrys);
+        var consoleValueInsert = new StringReader(entrys.ToString());
+            Console.SetIn(consoleValueInsert);
+            var instance = new GuessNumber();
+            instance.response.Should().Be(expected.ToString());
     }    
 }

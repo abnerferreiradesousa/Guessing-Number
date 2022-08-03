@@ -24,14 +24,21 @@ public class TestSecondReq
     [InlineData(50, 0)]
     public void TestProgramComparisonValuesLess(int mockValue, int entry)
     {
+        using (var NewOutput = new StringWriter())
+        {
+        Console.SetOut(NewOutput);
+
         var instance = new GuessNumber();
+
         instance.userValue = mockValue;
         instance.randomValue = entry;
-        var stringWriter = new StringWriter();
-        Console.SetOut(stringWriter);
+        string result = NewOutput.ToString().Trim();
         instance.AnalyzePlay();
-        var output = stringWriter.ToString();
+        var output = NewOutput.ToString();
         output.Should().Be("Tente um número MENOR");
+        }
+        // var stringReader = new StringReader(mockValue.ToString());
+	    // Console.SetIn(stringReader);
   
     }
     [Theory(DisplayName = "Deve comparar a entrada do usuário em um caso MAIOR")]
