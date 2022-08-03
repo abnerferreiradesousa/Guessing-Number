@@ -23,7 +23,7 @@ public class TestFirstReq
         string result = NewOutput.ToString().Trim();
         result.Should().Be("expected");
         }      
-        throw new NotImplementedException();  
+        // throw new NotImplementedException();  
 
     }
 
@@ -42,7 +42,7 @@ public class TestFirstReq
     public void TestReceiveUserInputAndVerifyType(string[] entrys, int expected)
     {
 
-        throw new NotImplementedException();  
+        // throw new NotImplementedException();  
 
         var consoleValueInsert = new StringReader(entrys[0].ToString());
         Console.SetIn(consoleValueInsert);
@@ -54,7 +54,7 @@ public class TestFirstReq
     [InlineData(new object[] {new string[]{"1000", "10"}, 10})]
     public void TestReceiveUserInputAndVerifyRange(string[] entrys, int expected)
     {
-        throw new NotImplementedException();  
+        // throw new NotImplementedException();  
 
         Console.Write(entrys);
         var consoleValueInsert = new StringReader(entrys.ToString());

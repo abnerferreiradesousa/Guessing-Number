@@ -45,13 +45,26 @@ public class TestSecondReq
     [InlineData(50, 60)]
     public void TestProgramComparisonValuesBigger(int mockValue, int entry)
     {
-        throw new NotImplementedException();  
+        using (var NewOutput = new StringWriter())
+        {
+        Console.SetOut(NewOutput);
+
+        var instance = new GuessNumber();
+
+        instance.userValue = entry;
+        instance.randomValue = mockValue;
+        string result = NewOutput.ToString().Trim();
+        instance.AnalyzePlay();
+        var output = NewOutput.ToString();
+        output.Should().Be("Tente um número MAIOR");
+        }
+        // throw new NotImplementedException();  
     }
     
     [Theory(DisplayName = "Deve comparar a entrada do usuário em um caso MAIOR")]
     [InlineData(50, 50)]
     public void TestProgramComparisonValuesEqual(int mockValue, int entry)
     {
-        throw new NotImplementedException();
+        // throw new NotImplementedException();
     }    
 }
