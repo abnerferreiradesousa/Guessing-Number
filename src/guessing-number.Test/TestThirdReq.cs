@@ -14,6 +14,16 @@ public class TestThirdReq
     [InlineData(new object[] {new string[]{"10"}, 10})]
     public void TestFullFlow(string[] entrys, int mockValue)
     {
-        // throw new NotImplementedException();
-    }
+        GuessNumber Game = new();
+        Game.response = entrys[0];
+        Game.Greet();        
+        Game.RandomNumber();
+        Game.randomValue = mockValue;;
+        do
+        {
+            Game.ChooseNumber();
+            Game.AnalyzePlay();
+        }while(Game.randomValue != Game.userValue);
+        Game.randomValue.Should().Be(10);     
+        }
 }
