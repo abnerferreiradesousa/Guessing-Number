@@ -14,14 +14,25 @@ public class TestSecondReq
     [InlineData(-100, 100)]
     public void TestRandomlyChooseANumber(int MinimumRange, int MaximumRange)
     {
-        throw new NotImplementedException();
+        var instance = new GuessNumber();
+        instance.RandomNumber();
+        instance.randomValue.Should().BeLessThanOrEqualTo(MaximumRange);
+        instance.randomValue.Should().BeGreaterThanOrEqualTo(MinimumRange);
     }
 
     [Theory(DisplayName = "Deve comparar a entrada do usuário em um caso MENOR")]
     [InlineData(50, 0)]
     public void TestProgramComparisonValuesLess(int mockValue, int entry)
     {
-        throw new NotImplementedException();   
+        var instance = new GuessNumber();
+        instance.userValue = mockValue;
+        instance.randomValue = entry;
+        var stringWriter = new StringWriter();
+        Console.SetOut(stringWriter);
+        instance.AnalyzePlay();
+        var output = stringWriter.ToString();
+        output.Should().Be("Tente um número MENOR");
+  
     }
     [Theory(DisplayName = "Deve comparar a entrada do usuário em um caso MAIOR")]
     [InlineData(50, 60)]

@@ -5,13 +5,50 @@
     {
       "tool": {
         "name": "Compilador do Microsoft (R) Visual C#",
-        "version": "4.1.0.0",
-        "fileVersion": "4.1.0-5.22116.13 (dbffaa4a)",
-        "semanticVersion": "4.1.0",
+        "version": "4.2.0.0",
+        "fileVersion": "4.2.0-4.22220.5 (432d17a8)",
+        "semanticVersion": "4.2.0",
         "language": "pt-BR"
       },
       "results": [
-      ]
+        {
+          "ruleId": "CS0168",
+          "level": "warning",
+          "message": "A variável \"error\" está declarada, mas nunca é usada",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///home/ubuntu/acc-aggregate-challenges/acc-csharp-07-project-guessing-number/src/guessing-number/GuessingGame.cs",
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 27,
+                  "endLine": 35,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 3
+          }
+        }
+      ],
+      "rules": {
+        "CS0168": {
+          "id": "CS0168",
+          "shortDescription": "A variável foi declarada, mas nunca foi usada",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS0168)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        }
+      }
     }
   ]
 }
