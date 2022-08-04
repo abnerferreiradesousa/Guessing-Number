@@ -23,19 +23,6 @@ public class GuessNumber
         Console.Write(
             $"Para começar, tente adivinhar o número que eu pensei, entre -100 e 100! \n"
         );
-        // var res = Console.ReadLine();
-        // try {
-        //     int convert = Convert.ToInt32(res);
-        //     if(convert > 100 || convert < -100) 
-        //     {
-        //         Console.Write("Por favor, digite um número inteiro: \n");
-        //         Greet();
-        //     }
-        //     response = res;
-        // } catch(Exception error) {
-        //     Console.WriteLine("Por favor, digite um número inteiro: \n");
-        //     Greet();
-        // }    
     }
 
     public void ChooseNumber()

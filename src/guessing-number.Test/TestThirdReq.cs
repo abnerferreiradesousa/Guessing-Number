@@ -14,8 +14,6 @@ public class TestThirdReq
     [InlineData(new object[] {new string[]{"10"}, 10})]
     public void TestFullFlow(string[] entrys, int mockValue)
     {
-        // Pedir ajuda pra testar essa último método!
-        
         using(var stringWriter = new StringWriter())
         {
             using(var stringReader = new StringReader(String.Join("\n", entrys[0]))) 
@@ -24,12 +22,15 @@ public class TestThirdReq
                 Console.SetIn(stringReader);                                     
 
                 var instance = new GuessNumber(); 
-                instance.Greet();                                    
-                instance.ChooseNumber();                                    
-                instance.randomValue = mockValue;                                    
+                instance.randomValue = mockValue;  
+
+                while(instance.randomValue != instance.userValue) 
+                {
+                    instance.ChooseNumber();                                    
+                    instance.AnalyzePlay();
+                }                                 
                 
-                var response = stringWriter.ToString().Trim();                   
-                response.Should().Contain("ACERTOU!");                                                 
+                instance.userValue.Should().Be(mockValue);                                                 
             }          
         }
     }
