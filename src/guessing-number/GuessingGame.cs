@@ -19,7 +19,7 @@ public class GuessNumber
 
     public void Greet()
     {
-        Console.Write($"---Bem-vindo ao Guessing Game---\n");
+        Console.Write($"---Bem-vindo ao Guessing Game--- \n");
         Console.Write(
             $"Para começar, tente adivinhar o número que eu pensei, entre -100 e 100! \n"
         );
@@ -45,17 +45,18 @@ public class GuessNumber
             int convert = Convert.ToInt32(res);
             if(convert > 100 || convert < -100) 
             {
-                Console.Write("Por favor, digite um número inteiro: \n");
+                Console.Write("Por favor, digite um número inteiro! \n");
                 ChooseNumber();
+            } else 
+            {
+                response = res;
+                userValue = convert;
             }
-            response = res;
-            userValue = convert;
         } catch(Exception error) {
-            Console.WriteLine("Por favor, digite um número inteiro: \n");
+            Console.WriteLine("Por favor, digite um número inteiro! \n");
             Console.WriteLine(error);
             ChooseNumber();
         }   
-        // int convert = Convert.ToInt32(response);
     }
     
     public void RandomNumber()
@@ -68,16 +69,13 @@ public class GuessNumber
         if (userValue > randomValue)
         {
             Console.Write("Tente um número MENOR \n");
-            // ChooseNumber();
         }
         if (userValue < randomValue) 
         {
             Console.Write("Tente um número MAIOR \n");
-            // ChooseNumber();
         }
         if (userValue == randomValue) 
         {
-            Console.WriteLine(userValue.ToString(), randomValue);
             Console.Write("ACERTOU!");
         }
     }

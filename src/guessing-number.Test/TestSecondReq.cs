@@ -24,59 +24,53 @@ public class TestSecondReq
     [InlineData(50, 0)]
     public void TestProgramComparisonValuesLess(int mockValue, int entry)
     {
-        using (var NewOutput = new StringWriter())
+        using(var stringWriter = new StringWriter()) 
         {
-        Console.SetOut(NewOutput);
+            var instance = new GuessNumber();
+            instance.userValue = mockValue;
+            instance.randomValue = entry;
 
-        var instance = new GuessNumber();
+            Console.SetOut(stringWriter);
+            instance.AnalyzePlay();
 
-        instance.userValue = mockValue;
-        instance.randomValue = entry;
-        string result = NewOutput.ToString().Trim();
-        instance.AnalyzePlay();
-        var output = NewOutput.ToString();
-        output.Should().Be("Tente um número MENOR");
+            var res = stringWriter.ToString().Trim();
+            res.Should().Contain("Tente um número MENOR");
         }
-        // var stringReader = new StringReader(mockValue.ToString());
-	    // Console.SetIn(stringReader);
-  
     }
     [Theory(DisplayName = "Deve comparar a entrada do usuário em um caso MAIOR")]
     [InlineData(50, 60)]
     public void TestProgramComparisonValuesBigger(int mockValue, int entry)
     {
-        using (var NewOutput = new StringWriter())
+        using(var stringWriter = new StringWriter()) 
         {
-        Console.SetOut(NewOutput);
+            var instance = new GuessNumber();
+            instance.userValue = mockValue;
+            instance.randomValue = entry;
 
-        var instance = new GuessNumber();
-
-        instance.userValue = entry;
-        instance.randomValue = mockValue;
-        string result = NewOutput.ToString().Trim();
-        instance.AnalyzePlay();
-        var output = NewOutput.ToString();
-        output.Should().Be("Tente um número MAIOR");
-        }
-        // throw new NotImplementedException();  
+            Console.SetOut(stringWriter);
+            instance.AnalyzePlay();
+            
+            var res = stringWriter.ToString().Trim();
+            res.Should().Contain("Tente um número MAIOR");
+        } 
     }
     
-    [Theory(DisplayName = "Deve comparar a entrada do usuário em um caso MAIOR")]
+    [Theory(DisplayName = "Deve comparar a entrada do usuário em um caso IGUAL")]
     [InlineData(50, 50)]
     public void TestProgramComparisonValuesEqual(int mockValue, int entry)
     {
-       using (var NewOutput = new StringWriter())
+        using(var stringWriter = new StringWriter()) 
         {
-        Console.SetOut(NewOutput);
+            var instance = new GuessNumber();
+            instance.userValue = mockValue;
+            instance.randomValue = entry;
 
-        var instance = new GuessNumber();
+            Console.SetOut(stringWriter);
+            instance.AnalyzePlay();
+            
+            var res = stringWriter.ToString().Trim();
+            res.Should().Contain("ACERTOU!");
+        }
 
-        instance.userValue = entry;
-        instance.randomValue = mockValue;
-        string result = NewOutput.ToString().Trim();
-        instance.AnalyzePlay();
-        var output = NewOutput.ToString();
-        output.Should().Be("ACERTOU!");
-        }    
     }    
 }

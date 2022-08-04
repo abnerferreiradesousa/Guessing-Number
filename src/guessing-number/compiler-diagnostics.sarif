@@ -12,27 +12,6 @@
       },
       "results": [
         {
-          "ruleId": "CS0168",
-          "level": "warning",
-          "message": "A variável \"error\" está declarada, mas nunca é usada",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///home/ubuntu/acc-aggregate-challenges/acc-csharp-07-project-guessing-number/src/guessing-number/GuessingGame.cs",
-                "region": {
-                  "startLine": 53,
-                  "startColumn": 27,
-                  "endLine": 53,
-                  "endColumn": 32
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 3
-          }
-        },
-        {
           "ruleId": "CA1822",
           "level": "note",
           "message": "Member 'Greet' does not access instance data and can be marked as static",
@@ -68,20 +47,6 @@
               "PortedFromFxCop",
               "Telemetry",
               "EnabledRuleInAggressiveMode"
-            ]
-          }
-        },
-        "CS0168": {
-          "id": "CS0168",
-          "shortDescription": "A variável foi declarada, mas nunca foi usada",
-          "defaultLevel": "warning",
-          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS0168)",
-          "properties": {
-            "category": "Compiler",
-            "isEnabledByDefault": true,
-            "tags": [
-              "Compiler",
-              "Telemetry"
             ]
           }
         }

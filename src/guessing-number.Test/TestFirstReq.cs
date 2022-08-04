@@ -10,56 +10,87 @@ namespace guessing_number.Test;
 public class TestFirstReq
 {
     [Theory(DisplayName = "Deve exibir mensagem inicial!")]
-    [InlineData(new object[] {new string[]{"---Bem-vindo ao ...---", "Para começar..."}})]
+    [InlineData(new object[] {new string[]{
+        "---Bem-vindo ao Guessing Game---", 
+        "Para começar, tente adivinhar o número que eu pensei, entre -100 e 100!"}})]
     public void TestPrintInitialMessage(string[] expected)
     {
-        using (var NewOutput = new StringWriter())
-        {
-        Console.SetOut(NewOutput);
-
-        GuessNumber instance = new();
-        instance.Greet();
-
-        string result = NewOutput.ToString().Trim();
-        result.Should().Be("expected");
-        }      
-        // throw new NotImplementedException();  
-
+       using(var stringWriter = new StringWriter())
+        {     
+            Console.SetOut(stringWriter); 
+            var instance = new GuessNumber(); 
+            instance.Greet();        
+            int count = 0;
+            var response = stringWriter.ToString().Trim();
+            while (count < expected.Length)
+            {
+            response.Should().Contain(expected[count]);                                                
+            count++;
+            }
+        }
     }
 
     [Theory(DisplayName = "Deve receber a entrada do usuário e converter para int")]
     [InlineData("0", 0)]
     public void TestReceiveUserInputAndConvert(string entry, int expected)
-    {        
-        GuessNumber instance = new();
-        instance.response = entry;
-        instance.ChooseNumber();
-        instance.userValue.Should().Be(expected);
+    {    
+        using(var stringWriter = new StringWriter())
+        {
+            using(var stringReader = new StringReader(String.Join("\n", entry))) 
+            {      
+                Console.SetOut(stringWriter); 
+                Console.SetIn(stringReader);                                     
+
+                var instance = new GuessNumber(); 
+                instance.ChooseNumber();                                    
+                
+                var response = stringWriter.ToString().Trim();                   
+                instance.userValue.Should().Be(expected);                                                 
+            }          
+        }
     }
 
     [Theory(DisplayName = "Deve receber a entrada do usuário e garantir que é um numérico")]
     [InlineData(new object[] {new string[]{"10,", "10"}, 10})]
     public void TestReceiveUserInputAndVerifyType(string[] entrys, int expected)
     {
+        using(var stringWriter = new StringWriter())
+        {
+            using(var stringReader = new StringReader(String.Join("\n", entrys[0], entrys[1]))) 
+            {      
+                Console.SetOut(stringWriter); 
+                Console.SetIn(stringReader);                                     
 
-        // throw new NotImplementedException();  
+                var instance = new GuessNumber(); 
+                instance.ChooseNumber();                                    
+                
+                var response = stringWriter.ToString().Trim();
+                response.Should().Contain("Por favor, digite um número inteiro");                                                 
 
-        var consoleValueInsert = new StringReader(entrys[0].ToString());
-        Console.SetIn(consoleValueInsert);
-        var instance = new GuessNumber();
-        instance.response.Should().Be(expected.ToString());  
+                instance.userValue.Should().Be(expected);                                                 
+            }          
+        } 
     }
 
     [Theory(DisplayName = "Deve receber a entrada do usuário e garantir que está entre -100 e 100!")]
     [InlineData(new object[] {new string[]{"1000", "10"}, 10})]
     public void TestReceiveUserInputAndVerifyRange(string[] entrys, int expected)
     {
-        // throw new NotImplementedException();  
+        using(var stringWriter = new StringWriter())
+        {
+            using(var stringReader = new StringReader(String.Join("\n", entrys[0], entrys[1]))) 
+            {      
+                Console.SetOut(stringWriter); 
+                Console.SetIn(stringReader);                                     
 
-        Console.Write(entrys);
-        var consoleValueInsert = new StringReader(entrys.ToString());
-            Console.SetIn(consoleValueInsert);
-            var instance = new GuessNumber();
-            instance.response.Should().Be(expected.ToString());
+                var instance = new GuessNumber(); 
+                instance.ChooseNumber();                                    
+                
+                var response = stringWriter.ToString().Trim();
+                response.Should().Contain("Por favor, digite um número inteiro");                                                 
+
+                instance.userValue.Should().Be(expected);                                                 
+            }          
+        } 
     }    
 }
