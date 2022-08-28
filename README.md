@@ -17,8 +17,6 @@ As regras do jogo são bem simples:
 - O jogador 1 responde se a tentativa do jogador 2 foi correta, abaixo ou acima do número escolhido.
 -Essa sequência se repete até que o jogador 2 acerte o número.
 
->> **⚠️Importante⚠️:** Para cada requisito do README, você verá dois requisitos associados no avaliador. Isso acontece porque para avaliar os testes deste projeto, o avaliador irá realizar dois testes: um de sucesso e um de falha. Você deve desenvolver o requisito e o seu teste para ter a aprovação em ambos.
-
 Seguindo os requisitos desse projeto, vamos construir nosso adversário, o jogador 1:
  
 ## 1 - Imprima uma mensagem e receba a resposta da pessoa usuária.
